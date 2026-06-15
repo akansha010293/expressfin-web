@@ -1,0 +1,7 @@
+export const contactNumber = "+61-432161441";
+export const whatsAppNumber = "61432161441";
+export const officeAddress = "3.02 / 101 Overton Road";
+export const officeSuburb = "Williams Landing, VIC";
+export const officePostcode = "3027";
+export const email = "giri@expressfin.com.au";
+export const australianCreditLicense = "098035267";
