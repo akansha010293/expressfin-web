@@ -60,7 +60,7 @@ export const About: React.FC = () => {
           </section>
 
           {/* Stats/Achievements */}
-          <section className="mb-16">
+          {/* <section className="mb-16">
             <div className="grid md:grid-cols-4 gap-6 text-center">
               <div className="bg-slate-50 p-6 rounded-xl border-2 border-slate-200">
                 <div className="text-4xl font-bold text-slate-800 mb-2">1000+</div>
@@ -79,7 +79,7 @@ export const About: React.FC = () => {
                 <div className="text-slate-600">Support Available</div>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* CTA */}
           <section className="bg-slate-50 p-10 rounded-xl shadow-md text-center border-2 border-slate-200">
