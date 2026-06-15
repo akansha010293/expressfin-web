@@ -1,14 +1,20 @@
 <svg width="80" height="80" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M256 54L428 153V352L256 451L84 352V153L256 54Z"
-      fill="#B8D900"
-    />
-    <path
-      d="M256 119L362 180L256 257L150 196V257L256 318L362 257V337L256 398L150 337V176L256 119Z"
-      fill="white"
-    />
-    <path
-      d="M150 196L256 257L362 180L316 154L256 198L196 164L150 196Z"
-      fill="white"
-    />
-  </svg>
+  <defs>
+    <mask id="cutout">
+      <rect width="512" height="512" fill="white"/>
+      <path
+        d="M256 119L362 180L256 257L150 196V257L256 318L362 257V337L256 398L150 337V176L256 119Z"
+        fill="black"
+      />
+      <path
+        d="M150 196L256 257L362 180L316 154L256 198L196 164L150 196Z"
+        fill="black"
+      />
+    </mask>
+  </defs>
+  <path
+    d="M256 54L428 153V352L256 451L84 352V153L256 54Z"
+    fill="#B8D900"
+    mask="url(#cutout)"
+  />
+</svg>
