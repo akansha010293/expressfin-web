@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const Topbar: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // const services = [
   //   "Car Loans",
@@ -35,15 +36,17 @@ export const Topbar: React.FC = () => {
   }, [isServicesOpen]);
 
   return (
-    <header className="text-white shadow-lg" style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}>
+    <header className="text-white shadow-lg" style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
+
             <Link
               to="/"
-             className="text-3xl font-bold text-white cursor-pointer"
+             className="flex items-center gap-3 cursor-pointer"
             >
-              Express Fin
+              <img src="/expressFin.svg" alt="Express Fin" className="h-12 w-auto" />
+              <span className="text-3xl font-bold text-white">Express Fin</span>
             </Link>
            
           </div>
@@ -115,22 +118,62 @@ export const Topbar: React.FC = () => {
               Contact
             </Link>
           </nav>
-          <button className="md:hidden text-white">
+          <button
+            className="md:hidden text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              {isMobileMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
             </svg>
           </button>
         </div>
+
+        {isMobileMenuOpen && (
+          <nav className="md:hidden pb-4 flex flex-col space-y-3">
+            <Link
+              to="/"
+              className="text-white hover:text-slate-300 transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="text-white hover:text-slate-300 transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className="text-white hover:text-slate-300 transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+          </nav>
+        )}
       </div>
     </header>
   );

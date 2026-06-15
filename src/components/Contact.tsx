@@ -277,7 +277,7 @@ export const Contact: React.FC = () => {
                   type="submit"
                   onClick={handleEmailSubmit}
                   className="flex-1 text-white font-semibold py-4 rounded-lg transition-colors shadow-lg flex items-center justify-center gap-2"
-                  style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}
+                  style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}
                   onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
                   onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
                 >
@@ -302,7 +302,7 @@ export const Contact: React.FC = () => {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="text-white p-8 rounded-xl shadow-lg" style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}>
+            <div className="text-white p-8 rounded-xl shadow-lg" style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}>
               <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">

@@ -3,7 +3,7 @@ import { australianCreditLicense, contactNumber, email, officeAddress, officePos
 // Footer Component
 export const Footer: React.FC = () => {
   return (
-    <footer className="text-white" style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}>
+    <footer className="text-white" style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-12 mb-8">
           {/* Quick Links */}

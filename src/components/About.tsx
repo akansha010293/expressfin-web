@@ -38,7 +38,7 @@ export const About: React.FC = () => {
           {/* Mission & Values */}
           <section className="mb-16">
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="text-white p-8 rounded-xl shadow-lg" style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}>
+              <div className="text-white p-8 rounded-xl shadow-lg" style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}>
                 <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
                 <p className="text-slate-200 leading-relaxed">
                   To empower Australians with accessible, transparent, and tailored financial solutions that help them 
@@ -47,7 +47,7 @@ export const About: React.FC = () => {
                 </p>
               </div>
               
-              <div className="text-white p-8 rounded-xl shadow-lg" style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}>
+              <div className="text-white p-8 rounded-xl shadow-lg" style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}>
                 <h3 className="text-2xl font-bold mb-4">Our Values</h3>
                 <ul className="text-slate-200 space-y-2">
                   <li>✓ <strong>Integrity:</strong> Honest and transparent advice</li>
@@ -90,7 +90,7 @@ export const About: React.FC = () => {
             </p>
             <button 
               className="text-white font-semibold px-10 py-4 rounded-lg transition-colors shadow-lg text-lg"
-              style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}
+              style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}
               onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
               onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
               onClick={() => window.location.href = '/contact'}

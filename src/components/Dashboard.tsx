@@ -1,79 +1,8 @@
 import { Link } from "react-router-dom";
+import { loanServices } from "./constants";
 
 // Main Body Component
 export const Dashboard: React.FC = () => {
-  const loanServices = [
-    {
-      title: "Car Loans",
-      icon: "🚗",
-      description:
-        "Competitive rates for new and used vehicles. Drive your dream car today with flexible repayment.",
-      color: "blue",
-    },
-    {
-      title: "Home Loan",
-      icon: "🏠",
-      description:
-        "Find the perfect home loan with competitive rates and personalized service for your dream property.",
-      color: "green",
-    },
-    {
-      title: "First Home Buyer Loan",
-      icon: "🔑",
-      description:
-        "Special assistance for first-time buyers. We'll guide you through every step of your first purchase.",
-      color: "cyan",
-    },
-    {
-      title: "Investment Loan",
-      icon: "📈",
-      description:
-        "Build your property portfolio with smart investment loan solutions and expert wealth creation strategies.",
-      color: "purple",
-    },
-    {
-      title: "Refinancing Loan",
-      icon: "🔄",
-      description:
-        "Lower your repayments and save thousands. Switch to a better deal with our refinancing options.",
-      color: "orange",
-    },
-    {
-      title: "Commercial Loan",
-      icon: "🏢",
-      description:
-        "Tailored financing for business properties and expansion. Fuel your business growth with flexible.",
-      color: "indigo",
-    },
-    {
-      title: "Construction Loan",
-      icon: "🏗️",
-      description:
-        "Build your dream home or investment property with stage-based construction finance solutions.",
-      color: "amber",
-    },
-    {
-      title: "Equipment Loan",
-      icon: "⚙️",
-      description:
-        "Finance essential business equipment and machinery to keep your operations running.",
-      color: "teal",
-    },
-    {
-      title: "Personal Loan",
-      icon: "💰",
-      description:
-        "Quick access to funds for life's unexpected moments. Flexible terms for your personal needs.",
-      color: "rose",
-    },
-    {
-      title: "SMSF Loan",
-      icon: "🏦",
-      description:
-        "Invest in property through your self-managed super fund. Maximize your retirement wealth strategy.",
-      color: "emerald",
-    },
-  ];
 
   return (
     <main className="flex-1 bg-white">
@@ -81,7 +10,7 @@ export const Dashboard: React.FC = () => {
         {/* Hero Section */}
         <section className="mb-16 text-center">
           <h1 className="text-5xl font-bold text-slate-800 mb-6">
-            Your Financial Future Starts Here
+            Your trusted financial partner
           </h1>
           <p className="text-xl text-slate-700 mb-4 max-w-3xl mx-auto">
             Expert financial solutions tailored to your unique needs. From first
@@ -92,11 +21,11 @@ export const Dashboard: React.FC = () => {
             Comprehensive loan services with competitive rates, personalized
             guidance, and seamless application processes.
           </p>
-                    <div className="flex gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="btn text-white font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg"
-              style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}
+              className="w-full sm:w-auto btn text-white font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg text-center"
+              style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}
               onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
               onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
             >
@@ -104,8 +33,8 @@ export const Dashboard: React.FC = () => {
             </Link>
             <Link
               to="/contact"
-              className="bg-white text-slate-800 font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg"
-              style={{ border: '2px solid oklch(0.33 0.06 306.71)' }}
+              className="w-full sm:w-auto bg-white text-slate-800 font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg text-center"
+              style={{ border: '2px solid oklch(29.3% 0.066 243.157)' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'oklch(0.95 0.01 306.71)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
             >
@@ -135,7 +64,7 @@ export const Dashboard: React.FC = () => {
                     borderColor: 'oklch(0.85 0.02 306.71)'
                     
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.borderColor = 'oklch(0.33 0.06 306.71)'}
+                  onMouseEnter={(e) => e.currentTarget.style.borderColor = 'oklch(29.3% 0.066 243.157)'}
                   onMouseLeave={(e) => e.currentTarget.style.borderColor = 'oklch(0.85 0.02 306.71)'}
                 >
                   <h3
@@ -149,7 +78,7 @@ export const Dashboard: React.FC = () => {
                   {/* <button
                     className={`mt-4 text-slate-100 font-semibold text-sm hover:underline flex items-center gap-1 bg-slate-700`}
                      style={{ 
-                    background: 'oklch(0.33 0.06 306.71)'
+                    background: 'oklch(29.3% 0.066 243.157)'
                     
                   }}
                   >
@@ -175,7 +104,7 @@ export const Dashboard: React.FC = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="text-white p-12 rounded-2xl shadow-xl mb-16" style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}>
+        <section className="text-white p-12 rounded-2xl shadow-xl mb-16" style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}>
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-4">Why Choose ExpressFin?</h2>
             <p className="text-slate-200 text-lg">
@@ -219,8 +148,8 @@ export const Dashboard: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="btn text-white font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg"
-            style={{ backgroundColor: 'oklch(0.33 0.06 306.71)' }}
+            className="inline-block w-full sm:w-auto btn text-white font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg text-center"
+            style={{ backgroundColor: 'oklch(29.3% 0.066 243.157)' }}
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
