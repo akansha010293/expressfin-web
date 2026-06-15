@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { contactNumber, officeAddress, email, officePostcode, officeSuburb ,whatsAppNumber} from "./constants";
+import { useState, useRef, useEffect } from "react";
+import { contactNumber, officeAddress, email, officePostcode, officeSuburb ,whatsAppNumber, web3FormsAccessKey} from "./constants";
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +18,15 @@ export const Contact: React.FC = () => {
     message: "",
   });
 
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const successMessageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (submitSuccess && successMessageRef.current) {
+      successMessageRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [submitSuccess]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -31,6 +40,10 @@ export const Contact: React.FC = () => {
         ...errors,
         [e.target.name]: "",
       });
+    }
+    // Clear success message when user starts editing
+    if (submitSuccess) {
+      setSubmitSuccess(false);
     }
   };
 
@@ -65,16 +78,53 @@ export const Contact: React.FC = () => {
     return !Object.values(newErrors).some(error => error !== "");
   };
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
       return;
     }
     
-    const subject = `Loan Inquiry - ${formData.loanType}`;
-    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0ALoan Type: ${formData.loanType}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    try {
+      // Using Web3Forms API to send email
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: web3FormsAccessKey, // Get this from https://web3forms.com
+          subject: `Loan Inquiry - ${formData.loanType}`,
+          from_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          loan_type: formData.loanType,
+          message: formData.message,
+          to_email: email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Show success message
+        setSubmitSuccess(true);
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          loanType: "",
+          message: "",
+        });
+      } else {
+        alert("Failed to send email. Please try WhatsApp instead.");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Failed to send email. Please try WhatsApp instead.");
+    }
   };
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
@@ -103,6 +153,19 @@ export const Contact: React.FC = () => {
           {/* Contact Form */}
           <div className="bg-slate-50 p-8 rounded-xl border-2 border-slate-200">
             <h2 className="text-3xl font-bold text-slate-800 mb-6">Send us a Message</h2>
+            
+            {submitSuccess && (
+              <div ref={successMessageRef} className="mb-6 p-4 bg-green-50 border-2 border-green-500 rounded-lg flex items-start gap-3">
+                <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <p className="text-green-800 font-semibold">Email sent successfully!</p>
+                  <p className="text-green-700 text-sm">You will be contacted shortly.</p>
+                </div>
+              </div>
+            )}
+            
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
