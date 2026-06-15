@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  font-family: ui-monospace;
-  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -38,7 +38,7 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
+  font-family: "Montserrat", sans-serif;
   cursor: pointer;
   transition: border-color 0.25s;
 }
